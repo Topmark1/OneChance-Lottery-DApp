@@ -247,7 +247,7 @@ export default function Home() {
     // If wallet is not connected, return a button which allows them to connect their wallet
     if (!walletConnected) {
       return (
-        <button onClick={connectWallet} className='button'>
+        <button onClick={connectWallet} className='px-5 py-2.5 rounded hover:brightness-75 hover:shadow-2xl bg-[#007db3] text-white'>
           Connect your wallet
         </button>
       );
@@ -255,20 +255,20 @@ export default function Home() {
 
     // If we are currently waiting for something, return a loading button
     if (loading) {
-      return <button className='button'>Loading...</button>;
+      return <button className='px-5 py-2.5 rounded hover:brightness-75 hover:shadow-2xl bg-[#007db3] text-white'>Loading...</button>;
     }
     // Render when the game has started
     if (gameStarted) {
       if (players.length === maxPlayers) {
         return (
-          <button className='button' disabled>
+          <button className='px-5 py-2.5 rounded hover:brightness-75 hover:shadow-2xl bg-[#007db3] text-white' disabled>
             Choosing winner...
           </button>
         );
       }
       return (
         <div>
-          <button className='button' onClick={joinGame}>
+          <button className='px-5 py-2.5 rounded hover:brightness-75 hover:shadow-2xl bg-[#007db3] text-white' onClick={joinGame}>
             Join Game 🚀
           </button>
         </div>
@@ -280,7 +280,7 @@ export default function Home() {
         <div>
           <input
             type="number"
-            className='input'
+            className='input w-[200px] h-[45px] rounded-md'
             onChange={(e) => {
               // The user will enter the value in ether, we will need to convert
               // it to WEI using parseEther
@@ -294,14 +294,14 @@ export default function Home() {
           />
           <input
             type="number"
-            className='input'
+            className='input w-[200px] h-[45px] rounded-md'
             onChange={(e) => {
               // The user will enter the value for maximum players that can join the game
               setMaxPlayers(e.target.value ?? 0);
             }}
             placeholder="Max players"
           />
-          <button className='button' onClick={startGame}>
+          <button className='px-5 py-2.5 rounded hover:brightness-75 hover:shadow-2xl bg-[#007db3] text-white' onClick={startGame}>
             Start Game 🚀
           </button>
         </div>
@@ -311,27 +311,25 @@ export default function Home() {
 
   return (
     <div>
-      <div className='main'>
-        <div>
-          <h1 className='title'>Welcome to Random Winner Game!</h1>
-          <div className='description'>
-            It's a lottery game where a winner is chosen at random and wins the
-            entire lottery pool
+      <div className='sm:flex items-center'>
+        <div className="sm:w-1/2 ml-4 sm:ml-8">
+          <h1 className='mb-8 text-[32px] font-black'>Welcome to OneChance Lottery Dapp!</h1>
+          <div className='text-[19px] my-4'>
+            It's a lottery dapp where a winners are chosen at random and win the
+            entire lottery pool, everybody is a winner! One Chance is all it takes!!
           </div>
           {renderButton()}
           {logs &&
             logs.map((log, index) => (
-              <div className='log' key={index}>
+              <div className='text-[16px] my-4 leading-4' key={index}>
                 {log}
               </div>
             ))}
         </div>
-        <div>
-          <img className='image' src="./0.svg" />
+        <div className="sm:w-1/2">
+          <img className='' src="./images/onechance.png" />
         </div>
       </div>
-
-      <footer className='footer'>Made with &#10084; by Your Name</footer>
     </div>
   );
 }
