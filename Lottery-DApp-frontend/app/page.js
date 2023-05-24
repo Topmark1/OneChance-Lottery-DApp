@@ -313,7 +313,7 @@ export default function Home() {
     <div>
       <div className='sm:flex items-center'>
         <div className="sm:w-1/2 ml-4 sm:ml-8">
-          <h1 className='mb-8 text-[32px] font-black'>Welcome to OneChance Lottery Dapp!</h1>
+          <h1 className='mb-4 sm:mb-8 text-[32px] font-black'>Welcome to OneChance Lottery Dapp!</h1>
           <div className='text-[19px] my-4'>
             It's a lottery dapp where a winners are chosen at random and win the
             entire lottery pool, everybody is a winner! One Chance is all it takes!!
@@ -321,7 +321,7 @@ export default function Home() {
           {renderButton()}
           {logs &&
             logs.map((log, index) => (
-              <div className='text-[16px] my-4 leading-4' key={index}>
+              <div className='text-[16px] my-4 leading-4 text-ellipsis overflow-hidden' key={index}>
                 {log}
               </div>
             ))}
